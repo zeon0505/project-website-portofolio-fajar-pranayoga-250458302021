@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fajar Pranayoga - Mecha Gundam Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Space Mono', monospace;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3); }
+            50% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(59, 130, 246, 0.5); }
+        }
+
+        @keyframes scan-lines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(10px); }
+        }
+
+        @keyframes pulse-border {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7), inset 0 0 20px rgba(59, 130, 246, 0.1); }
+            50% { box-shadow: 0 0 20px 5px rgba(59, 130, 246, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.2); }
+        }
+
+        @keyframes slide-in {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .glow-text {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .pulse-border {
+            animation: pulse-border 2s ease-in-out infinite;
+        }
+
+        .scan-effect {
+            animation: scan-lines 8s linear infinite;
+        }
+
+        .slide-in {
+            animation: slide-in 0.6s ease-out;
+        }
+
+        .geometric-border {
+            position: relative;
+            border: 2px solid #3b82f6;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 8px 0;
+            color: #94a3b8;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            padding-left: 12px;
+        }
+
+        .nav-link:hover {
+            color: #3b82f6;
+            border-left-color: #fbbf24;
+            transform: translateX(5px);
+        }
+
+        .nav-link.active {
+            color: #3b82f6;
+            border-left-color: #ef4444;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid #3b82f6;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(251, 191, 36, 0.3);
+            border-color: #fbbf24;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: linear-gradient(90deg, #3b82f6, #fbbf24, #ef4444);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #fbbf24);
+            border-radius: 4px;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { width: 0; }
+        }
+
+        .grid-bg {
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(59, 130, 246, 0.05) 25%, rgba(59, 130, 246, 0.05) 26%, transparent 27%, transparent 74%, rgba(59, 130, 246, 0.05) 75%, rgba(59, 130, 246, 0.05) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(59, 130, 246, 0.05) 25%, rgba(59, 130, 246, 0.05) 26%, transparent 27%, transparent 74%, rgba(59, 130, 246, 0.05) 75%, rgba(59, 130, 246, 0.05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border: 3px solid #3b82f6;
+            clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 grid-bg">
+    <div class="flex min-h-screen">
+        <!-- Sidebar Profil -->
+        <aside class="w-80 bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900 text-white p-8 fixed left-0 top-0 h-screen overflow-y-auto slide-in border-r-2 border-blue-500">
+            <!-- Profile Section -->
+            <div class="mb-12">
+                <div class="profile-image mb-6 mx-auto">
+                    <img src="image/gd.jpg" alt="Fajar Pranayoga">
+                </div>
+                <h1 class="text-3xl font-bold glow-text text-center mb-2">FAJAR</h1>
+                <h2 class="text-xl font-bold text-center text-yellow-400 mb-4">PRANAYOGA</h2>
+                <p class="text-center text-blue-300 text-sm mb-2">Mecha Pilot & Developer</p>
+                <p class="text-center text-gray-400 text-xs">Crafting Digital Experiences</p>
+            </div>
+
+            <!-- Divider -->
+            <div class="h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent mb-8"></div>
+
+            <!-- Navigation -->
+            <nav class="space-y-6 mb-12">
+                <a href="#about" class="nav-link active" onclick="setActive(this)">
+                    <span class="text-yellow-400">▸</span> ABOUT
+                </a>
+                <a href="#projects" class="nav-link" onclick="setActive(this)">
+                    <span class="text-yellow-400">▸</span> PROJECTS
+                </a>
+                <a href="#skills" class="nav-link" onclick="setActive(this)">
+                    <span class="text-yellow-400">▸</span> SKILLS
+                </a>
+                <a href="#contact" class="nav-link" onclick="setActive(this)">
+                    <span class="text-yellow-400">▸</span> CONTACT
+                </a>
+            </nav>
+
+            <!-- Divider -->
+            <div class="h-px bg-gradient-to-r from-transparent via-red-500 to-transparent mb-8"></div>
+
+            <!-- Stats -->
+            <div class="space-y-4 mb-12">
+                <div class="bg-blue-500 bg-opacity-10 p-3 border-l-2 border-blue-500">
+                    <p class="text-xs text-gray-400">EXPERIENCE</p>
+                    <p class="text-lg font-bold text-blue-300">5+ Years</p>
+                </div>
+                <div class="bg-yellow-500 bg-opacity-10 p-3 border-l-2 border-yellow-500">
+                    <p class="text-xs text-gray-400">PROJECTS</p>
+                    <p class="text-lg font-bold text-yellow-300">20+</p>
+                </div>
+                <div class="bg-red-500 bg-opacity-10 p-3 border-l-2 border-red-500">
+                    <p class="text-xs text-gray-400">CLIENTS</p>
+                    <p class="text-lg font-bold text-red-300">15+</p>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="space-y-3">
+                <p class="text-xs text-gray-500 uppercase tracking-widest">CONNECT</p>
+                <div class="flex gap-3">
+                    <a href="#" class="w-10 h-10 bg-blue-500 hover:bg-yellow-400 flex items-center justify-center transition-all duration-300 geometric-border text-white hover:text-slate-900 font-bold">
+                        GH
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-blue-500 hover:bg-red-500 flex items-center justify-center transition-all duration-300 geometric-border text-white font-bold">
+                        LI
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-blue-500 hover:bg-yellow-400 flex items-center justify-center transition-all duration-300 geometric-border text-white hover:text-slate-900 font-bold">
+                        TW
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ml-80 flex-1 p-12">
+            <!-- Header -->
+            <header class="mb-16 geometric-border p-8 bg-gradient-to-r from-blue-50 to-white pulse-border">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h1 class="text-5xl font-black text-blue-600 glow-text mb-2">FAJAR PRANAYOGA</h1>
+                        <p class="text-xl text-gray-600">Full Stack Developer & UI/UX Designer</p>
+                    </div>
+                    <div class="text-6xl opacity-20">⚙️</div>
+                </div>
+                <p class="text-gray-700 mt-4">Transforming ideas into powerful digital solutions with cutting-edge technology and creative design.</p>
+            </header>
+
+            <!-- About Section -->
+            <section id="about" class="mb-20">
+                <h2 class="text-4xl font-bold text-blue-600 mb-8 flex items-center gap-3">
+                    <span class="text-yellow-400">▸▸▸</span> ABOUT ME
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="geometric-border p-8 bg-gradient-to-br from-blue-50 to-white">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-4">Mission</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Saya adalah seorang FULL STACK developer yang passionate dalam menciptakan solusi digital yang inovatif dan user-friendly. Dengan pengalaman lebih dari 2 tahun, saya telah membantu berbagai klien mengubah visi mereka menjadi kenyataan.
+                        </p>
+                    </div>
+                    <div class="geometric-border p-8 bg-gradient-to-br from-yellow-50 to-white">
+                        <h3 class="text-2xl font-bold text-yellow-600 mb-4">Expertise</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center gap-2"><span class="text-red-500">●</span> Web Development</li>
+                            <li class="flex items-center gap-2"><span class="text-blue-500">●</span> UI/UX Design</li>
+                            <li class="flex items-center gap-2"><span class="text-yellow-500">●</span> Mobile Apps</li>
+                            <li class="flex items-center gap-2"><span class="text-red-500">●</span> Database Design</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="mb-20">
+                <h2 class="text-4xl font-bold text-blue-600 mb-8 flex items-center gap-3">
+                    <span class="text-red-500">▸▸▸</span> MISSION ARCHIVE
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Project 1 -->
+                    <div class="project-card p-6 bg-white">
+                        <div class="h-40 bg-gradient-to-br from-blue-400 to-blue-600 mb-4 flex items-center justify-center text-white text-4xl">
+                            🚀
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-600 mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-600 text-sm mb-4">Platform e-commerce modern dengan fitur pembayaran terintegrasi dan inventory management.</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded">React</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-bold rounded">Node.js</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card p-6 bg-white">
+                        <div class="h-40 bg-gradient-to-br from-yellow-400 to-red-500 mb-4 flex items-center justify-center text-white text-4xl">
+                            📱
+                        </div>
+                        <h3 class="text-xl font-bold text-yellow-600 mb-2">Mobile App Design</h3>
+                        <p class="text-gray-600 text-sm mb-4">Aplikasi mobile dengan UI/UX yang intuitif dan performa tinggi untuk iOS dan Android.</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-bold rounded">Flutter</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-600 text-xs font-bold rounded">Firebase</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card p-6 bg-white">
+                        <div class="h-40 bg-gradient-to-br from-red-400 to-red-600 mb-4 flex items-center justify-center text-white text-4xl">
+                            🎨
+                        </div>
+                        <h3 class="text-xl font-bold text-red-600 mb-2">Design System</h3>
+                        <p class="text-gray-600 text-sm mb-4">Comprehensive design system dengan component library dan documentation lengkap.</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="px-3 py-1 bg-red-100 text-red-600 text-xs font-bold rounded">Figma</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded">Storybook</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="mb-20">
+                <h2 class="text-4xl font-bold text-blue-600 mb-8 flex items-center gap-3">
+                    <span class="text-yellow-400">▸▸▸</span> COMBAT SKILLS
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Frontend -->
+                    <div class="geometric-border p-6 bg-gradient-to-br from-blue-50 to-white">
+                        <h3 class="text-xl font-bold text-blue-600 mb-6">Frontend</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">React</span>
+                                    <span class="text-blue-600 font-bold">95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">Tailwind CSS</span>
+                                    <span class="text-blue-600 font-bold">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">TypeScript</span>
+                                    <span class="text-blue-600 font-bold">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="geometric-border p-6 bg-gradient-to-br from-yellow-50 to-white">
+                        <h3 class="text-xl font-bold text-yellow-600 mb-6">Backend</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">Node.js</span>
+                                    <span class="text-yellow-600 font-bold">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">PostgreSQL</span>
+                                    <span class="text-yellow-600 font-bold">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">API Design</span>
+                                    <span class="text-yellow-600 font-bold">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Design -->
+                    <div class="geometric-border p-6 bg-gradient-to-br from-red-50 to-white">
+                        <h3 class="text-xl font-bold text-red-600 mb-6">Design</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">Figma</span>
+                                    <span class="text-red-600 font-bold">92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">UI/UX Design</span>
+                                    <span class="text-red-600 font-bold">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">Prototyping</span>
+                                    <span class="text-red-600 font-bold">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools -->
+                    <div class="geometric-border p-6 bg-gradient-to-br from-blue-50 to-white">
+                        <h3 class="text-xl font-bold text-blue-600 mb-6">Tools & Others</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">Git & GitHub</span>
+                                    <span class="text-blue-600 font-bold">95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">Docker</span>
+                                    <span class="text-blue-600 font-bold">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold text-gray-700">AWS</span>
+                                    <span class="text-blue-600 font-bold">82%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 82%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="mb-20">
+                <h2 class="text-4xl font-bold text-blue-600 mb-8 flex items-center gap-3">
+                    <span class="text-red-500">▸▸▸</span> CONTACT
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="geometric-border p-8 bg-gradient-to-br from-blue-50 to-white">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-6">Get In Touch</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Name</label>
+                                <input type="text" class="w-full px-4 py-2 border-2 border-blue-300 focus:border-blue-600 focus:outline-none bg-white" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-2 border-2 border-blue-300 focus:border-blue-600 focus:outline-none bg-white" placeholder="your@email.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Message</label>
+                                <textarea class="w-full px-4 py-2 border-2 border-blue-300 focus:border-blue-600 focus:outline-none bg-white h-32" placeholder="Your message..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-bold py-3 px-6 transition-all duration-300 geometric-border">
+                                SEND MESSAGE
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="geometric-border p-6 bg-gradient-to-br from-yellow-50 to-white">
+                            <h4 class="text-lg font-bold text-yellow-600 mb-2">Email</h4>
+                            <p class="text-gray-700">fajar.pranayoga@email.com</p>
+                        </div>
+                        <div class="geometric-border p-6 bg-gradient-to-br from-red-50 to-white">
+                            <h4 class="text-lg font-bold text-red-600 mb-2">Phone</h4>
+                            <p class="text-gray-700">+62 812 3456 7890</p>
+                        </div>
+                        <div class="geometric-border p-6 bg-gradient-to-br from-blue-50 to-white">
+                            <h4 class="text-lg font-bold text-blue-600 mb-2">Location</h4>
+                            <p class="text-gray-700">Jakarta, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="border-t-2 border-blue-300 pt-8 mt-20 text-center text-gray-600">
+                <p class="mb-2">© 2025 Fajar Pranayoga. All rights reserved.</p>
+                <p class="text-sm text-gray-500">Designed & Built with Mecha Gundam Aesthetic</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function setActive(element) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
